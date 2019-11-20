@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\ApplicantDetails;
 
 class RegisterController extends Controller
 {
@@ -63,7 +64,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'user_type_id' => $data['user_type_id'],
@@ -71,5 +72,20 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $applicant_id = $user->id;
+        $user_type = $user->user_type_id;
+
+        if ($user_type == '1') {
+            $applicant = new ApplicantDetails();
+            $applicant->applicant_id = $applicant_id;
+            $applicant->save();
+        }
+
+        \Session::flash('success', 'Your Registration Successfully Complete! Please Login! ');
+         return redirect()->route('login');
+
+
+
     }
 }

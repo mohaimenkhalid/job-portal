@@ -47,7 +47,7 @@
                             <label for="bussiness_name" class="col-md-4 col-form-label text-md-right">{{ __('Bussiness Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="bussiness_name" type="text" class="form-control @error('bussiness_name') is-invalid @enderror" name="bussiness_name" value="{{ old('name') }}" required autocomplete="bussiness_name" autofocus>
+                                <input id="bussiness_name" type="text" class="form-control @error('bussiness_name') is-invalid @enderror" name="bussiness_name" value="{{ old('name') }}" autocomplete="bussiness_name" autofocus>
                             </div>
                         </div>
 

@@ -35,7 +35,7 @@
         </li>
 
         <li class="">
-          <a href="#">
+          <a href="{{ route('applicant.profile') }}">
             <i class="fa fa-laptop"></i>
             <span>Profile</span>
           </a>

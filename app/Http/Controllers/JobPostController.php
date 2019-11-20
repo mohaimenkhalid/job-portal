@@ -11,7 +11,7 @@ class JobPostController extends Controller
 {
     public function create()
     {
-    	return view('backend.CreateJob');
+    	return view('backend.company.CreateJob');
     }
 
     public function store(Request $request)

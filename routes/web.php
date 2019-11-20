@@ -19,3 +19,6 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/create-job-post', 'JobPostController@create')->name('job.create');
 Route::post('/job-post/store', 'JobPostController@store')->name('job.post.store');
+
+Route::get('/user/profile', 'ApplicantDetailsController@index')->name('applicant.profile');
+Route::post('/user/profile/store', 'ApplicantDetailsController@update')->name('applicant.profile.update');
