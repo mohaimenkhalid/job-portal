@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserTypesTable extends Migration
+class CreateJobPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateUserTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_types', function (Blueprint $table) {
+        Schema::create('job_posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_type_name');
-            $table->unsignedTinyInteger('user_type')->comment('1=Applicant | 2=Company');
+            $table->unsignedInteger('job_posted_by_id');
+            $table->unsignedInteger('job_description_id');
+            $table->unsignedInteger('job_location_id');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateUserTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_types');
+        Schema::dropIfExists('job_posts');
     }
 }
