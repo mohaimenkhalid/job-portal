@@ -49,6 +49,14 @@
           
         </li>
 
+          <li >
+          <a href="{{ route('all.job') }}">
+            <i class="fa fa-laptop"></i>
+            <span>All Job</span>
+          </a>
+          
+        </li>
+
     <li class="treeview">
       <a style=""  href="{{ route('logout') }}"
       onclick="event.preventDefault();

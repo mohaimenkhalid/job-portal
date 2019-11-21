@@ -56,4 +56,20 @@ class JobPostController extends Controller
     }
 
 
+    public function alljob()
+    {
+        $alljobs = JobPost::all();
+        return view('backend.jobpost.alljob', compact('alljobs'));
+    }
+
+    public function viewjob($id)
+    {
+       $jobpost = JobPost::find($id);
+      return view('backend.jobpost.view', compact('jobpost'));
+        
+    }
+
+
+
+
 }
