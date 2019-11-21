@@ -82,8 +82,7 @@ class RegisterController extends Controller
             $applicant->save();
         }
 
-        \Session::flash('success', 'Your Registration Successfully Complete! Please Login! ');
-         return redirect()->route('login');
+        return $user;
 
 
 

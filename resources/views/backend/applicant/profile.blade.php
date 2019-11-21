@@ -77,13 +77,15 @@
                 <tr>
                   <th scope="row">Resume</th>
                   <td>
-                    <form method="get" action="{{ route('resume.download', $applicant_details->resume) }}">
                     @if($applicant_details->resume)
+                    <form method="get" action="{{ route('resume.download', $applicant_details->resume) }}">
+                  
                       <button class="btn btn-sm btn-success">Download resume</button>
+                    </form>
                     @else
                       No Resume Found 
                     @endif
-                    </form>
+                   
                     <form method="post" action="{{ route('applicant.profile.update') }}" enctype="multipart/form-data">
                      @csrf 
                       <input type="file" name="resume">
@@ -97,7 +99,7 @@
                   <td>
                     <form method="post" action="{{ route('applicant.profile.update') }}" >
                     @csrf
-                      <input type="text" name="skills" class="form-control" placeholder="Enter Skill Example- Laravel, Vuejs, reactJs">
+                      <input type="text" name="skills" class="form-control" placeholder="Enter Skill Example- Laravel, Vuejs, reactJs" value="{{ $applicant_details->skills }}">
                     <button>update skill</button>
                    </form>
                   </td>

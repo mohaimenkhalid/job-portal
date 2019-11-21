@@ -4,10 +4,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel mb-5">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img class="img-circle" >
         </div>
         <div class="pull-left info mb-5">
-          <p>Mohaimen Khalid</p>
+          <p>{{ Auth::user()->first_name }}</p>
           
         </div>
       </div>
@@ -34,22 +34,25 @@
           </a>
         </li>
 
+   @cannot('isCompany')
         <li class="">
           <a href="{{ route('applicant.profile') }}">
             <i class="fa fa-laptop"></i>
             <span>Profile</span>
           </a>
         </li>
+   @endcan
 
+   @cannot('isApplicant')
       <li >
           <a href="{{ route('job.create') }}">
             <i class="fa fa-laptop"></i>
             <span>Post New Job</span>
-          </a>
-          
+          </a> 
         </li>
+  @endcan
 
-          <li >
+          <li>
           <a href="{{ route('all.job') }}">
             <i class="fa fa-laptop"></i>
             <span>All Job</span>

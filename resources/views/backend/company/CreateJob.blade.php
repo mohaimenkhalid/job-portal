@@ -21,9 +21,7 @@
           <div class="box-header with-border">
             <h3 class="box-title"><strong>Add New Job Post</strong></h3>
           </div>
-          <div class="box-body">
-            <a href="" class="btn btn-success">View All Job</a>
-          </div>
+          
           <div class="box-body">
            
             

@@ -71,6 +71,7 @@
           <td>{{ $jobpost->created_at}}></td>
         </tr>
       
+      @cannot('isCompany')
         <tr> 
           <td colspan="2">
                 <form method="POST" action="{{ route('job.application.store', [$jobpost->id, $jobpost->job_posted_by_id ]) }}">
@@ -81,7 +82,7 @@
                 </form>
             </td>
         </tr>
-
+      @endcan
     
   </tbody>
 </table>

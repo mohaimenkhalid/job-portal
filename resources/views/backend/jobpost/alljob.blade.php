@@ -13,17 +13,15 @@
 
 <div class="row">
 
-<div class="col-md-2"></div>
+<div class="col-md-1"></div>
 
-      <div class="col-md-8">
+      <div class="col-md-10">
 
         <div class="box box-info" style="margin-top:20px;">
           <div class="box-header with-border">
-            <h3 class="box-title"><strong>Applicant Profile</strong></h3>
+            <h3 class="box-title"><strong>View All Job</strong></h3>
           </div>
-          <div class="box-body">
-            <a href="" class="btn btn-success">View All Job</a>
-          </div>
+          
           <div class="box-body">
              <table id="example" class="display nowrap" style="width:100%">
         <thead>

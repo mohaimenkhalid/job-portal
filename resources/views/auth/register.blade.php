@@ -29,29 +29,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
-
-                            <div class="col-md-6">
-                                 <select class="form-control" name="user_type_id" required>
-                                    <option value="">Select User Type</option>
-                                    @foreach($user_type as $user_type)
-                                    <option value="{{ $user_type->user_type }}">{{ $user_type->user_type_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <label for="bussiness_name" class="col-md-4 col-form-label text-md-right">{{ __('Bussiness Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="bussiness_name" type="text" class="form-control @error('bussiness_name') is-invalid @enderror" name="bussiness_name" value="{{ old('name') }}" autocomplete="bussiness_name" autofocus>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
+                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -64,6 +42,30 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
+
+                            <div class="col-md-6">
+                                 <select class="form-control" name="user_type_id" id="user" required >
+                                    <option value="">Select User Type</option>
+                                    @foreach($user_type as $user_type)
+                                    <option value="{{ $user_type->user_type }}">{{ $user_type->user_type_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row hidden" id="bussiness_id">
+                            <label for="bussiness_name" class="col-md-4 col-form-label text-md-right">{{ __('Bussiness Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="bussiness_name" type="text" class="form-control @error('bussiness_name') is-invalid @enderror" name="bussiness_name" value="{{ old('bussiness_name') }}" autocomplete="bussiness_name" autofocus>
+                            </div>
+                        </div>
+
+                       
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -94,10 +96,16 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+
+
 @endsection
