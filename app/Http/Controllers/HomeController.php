@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\JobApplication;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $all_application = JobApplication::where('company_id', Auth::id())->orderBy('id', 'DESC')->get();
+        return view('index', compact('all_application'));
     }
 }

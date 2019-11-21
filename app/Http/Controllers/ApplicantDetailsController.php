@@ -12,7 +12,8 @@ class ApplicantDetailsController extends Controller
 {
     public function index()
     {
-    	return view('backend.applicant.profile');
+        $applicant_details = ApplicantDetails::where('Applicant_id', Auth::id())->first();
+    	return view('backend.applicant.profile', compact('applicant_details'));
     }
 
     public function update(Request $request)
@@ -84,10 +85,15 @@ class ApplicantDetailsController extends Controller
    		 	return redirect()->back();
     	}
 
-
-
-
     }
+
+
+   
+public function download($file_name) {
+        $file_path = public_path('resume/applicant/'.$file_name);
+        return response()->download($file_path);
+  }
+    
 
 
 

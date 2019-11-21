@@ -28,7 +28,7 @@
             <table class="table table-borderless">
               <thead>
                 <tr>
-                  <th scope="col">
+                  <th scope="col" colspan="2">
                     @if (session('success'))
                         <div class="alert alert-success" role="alert">
                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -59,7 +59,11 @@
                   <th scope="row">Image</th>
                   <td>
             
-                    <img src="/images/applicant/default.png" id="profile-img-tag" width="150px" />
+                    @if($applicant_details->image)
+                    <img src="{{ asset('images/applicant/'.$applicant_details->image) }}" id="profile-img-tag" width="150px" />
+                    @else
+                     <img src="/images/applicant/default.png" id="profile-img-tag" width="150px" />
+                     @endif
 
                     <form method="post" action="{{ route('applicant.profile.update') }}" enctype="multipart/form-data">
                       @csrf
@@ -73,7 +77,13 @@
                 <tr>
                   <th scope="row">Resume</th>
                   <td>
-                    No File Found
+                    <form method="get" action="{{ route('resume.download', $applicant_details->resume) }}">
+                    @if($applicant_details->resume)
+                      <button class="btn btn-sm btn-success">Download resume</button>
+                    @else
+                      No Resume Found 
+                    @endif
+                    </form>
                     <form method="post" action="{{ route('applicant.profile.update') }}" enctype="multipart/form-data">
                      @csrf 
                       <input type="file" name="resume">
